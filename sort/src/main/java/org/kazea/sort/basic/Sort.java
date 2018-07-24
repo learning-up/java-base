@@ -2,12 +2,12 @@ package org.kazea.sort.basic;
 
 import java.lang.reflect.InvocationTargetException;
 
-public interface Sort {
+public interface Sort<T extends Comparable> {
 
-    void sort(int[] array);
+    void sort(T[] array);
 
-    default void swap(int[] array, int i, int j){
-        int temp = array[j];
+    default void swap(T[] array, int i, int j){
+        T temp = array[j];
         array[j] = array[i];
         array[i] = temp;
     }

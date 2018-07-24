@@ -5,9 +5,9 @@ import org.kazea.sort.basic.Sort;
 /**
  * 希尔排序
  */
-public class ShellSort implements Sort {
+public class ShellSort<T extends Comparable> implements Sort<T> {
     @Override
-    public void sort(int[] array) {
+    public void sort(T[] array) {
         System.out.println("use ShellSort");
     }
 }

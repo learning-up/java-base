@@ -5,14 +5,14 @@ import org.kazea.sort.basic.Sort;
 /**
  * 归并排序
  */
-public class MergeSort implements Sort {
+public class MergeSort<T extends Comparable> implements Sort<T> {
     @Override
-    public void sort(int[] array) {
+    public void sort(T[] array) {
         System.out.println("use MergeSort");
         sort(array, 0, array.length-1);
     }
 
-    private void sort(int[] array, int start, int end){
+    private void sort(T[] array, int start, int end){
 
         if(start >= end) return;
 
@@ -24,16 +24,16 @@ public class MergeSort implements Sort {
 
     }
 
-    private void merge(int[] array, int start, int middle, int end){
+    private void merge(T[] array, int start, int middle, int end){
 
-        int[] tempArray = new int[end-start+1];
+        Object[] tempArray = new Object[end-start+1];
         int index = 0;
 
         int left = start;
         int right = middle+1;
 
         while(left <= middle && right <= end){
-            if(array[left] < array[right]) {
+            if(array[left].compareTo(array[right]) < 0) {
                 tempArray[index++] = array[left++];
             } else {
                 tempArray[index++] = array[right++];
@@ -45,11 +45,9 @@ public class MergeSort implements Sort {
         while(right <= end)   tempArray[index++] = array[right++];
 
         for(int temp=0; temp <= (end-start); temp++){
-            array[start + temp] = tempArray[temp];
+            array[start + temp] = (T)tempArray[temp];
         }
 
     }
-
-
 
 }

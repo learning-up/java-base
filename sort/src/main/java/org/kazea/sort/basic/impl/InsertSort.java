@@ -5,16 +5,16 @@ import org.kazea.sort.basic.Sort;
 /**
  * 插入排序
  */
-public class InsertSort implements Sort {
+public class InsertSort<T extends Comparable> implements Sort<T> {
 
     @Override
-    public void sort(int[] array) {
+    public void sort(T[] array) {
         System.out.println("use InsertSort");
 
         for(int i=1; i< array.length-1; i++){
-            int current = array[i];
+            T current = array[i];
             int j = i-1;
-            for(; j>=0 && current < array[j]; j--){
+            for(; j>=0 && current.compareTo(array[j]) < 0; j--){
                 array[j+1] = array[j];
             }
             array[j+1] = current;

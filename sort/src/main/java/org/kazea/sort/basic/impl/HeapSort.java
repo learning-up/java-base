@@ -5,10 +5,10 @@ import org.kazea.sort.basic.Sort;
 /**
  * 堆排序
  */
-public class HeapSort implements Sort {
+public class HeapSort<T extends Comparable> implements Sort<T> {
+
     @Override
-    public void sort(int[] array) {
-        System.out.println("use HeapSort");
+    public void sort(T[] array) {
 
     }
 
