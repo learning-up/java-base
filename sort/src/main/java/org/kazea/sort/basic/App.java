@@ -9,7 +9,7 @@ public class App {
     public static void main( String[] args ) {
 
         //==============================================
-        Sort sort = Sort.getInstance(Sort.SortType.Quick);
+        Sort sort = Sort.getInstance(Sort.SortType.Merge);
         //==============================================
 
         long start = System.currentTimeMillis();
